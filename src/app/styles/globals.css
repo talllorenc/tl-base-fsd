@@ -1,0 +1,77 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-backgroundSecondary: var(--background-secondary);
+  --color-foregroundSecondary: var(--foreground-secondary);
+  --color-outline: var(--outline);
+  --color-cherry: var(--cherry);
+  --color-errorBackground: var(--error-background);
+  --color-errorForeground: var(--error-foreground);
+  --color-errorOutline: var(--error-outline);
+  --color-infoBackground: var(--info-background);
+  --color-infoForeground: var(--info-foreground);
+  --color-infoOutline: var(--info-outline);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --background-secondary: #fafafb;
+  --foreground-secondary: #555555;
+  --outline: #e9e9ec;
+  --cherry: #cc2936;
+
+  --error-background: #fef5f4;
+  --error-foreground: #b43428;
+  --error-outline: #f8e3e1;
+
+  --info-background: #ebf4fb;
+  --info-foreground: #5caef1;
+  --info-outline: #c1e3fe;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #d4d4d4;
+  --background-secondary: #111114;
+  --foreground-secondary: #aaaaaa;
+  --outline: #25272a;
+  --cherry: #cc2936;
+
+  --error-background: #fef5f4;
+  --error-foreground: #b43428;
+  --error-outline: #f8e3e1;
+
+  --info-background: #ebf4fb;
+  --info-foreground: #1061a3;
+  --info-outline: #c1e3fe;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  h1 {
+    @apply text-4xl font-bold tracking-tight lg:text-5xl;
+  }
+  h2 {
+    @apply text-3xl font-semibold tracking-tight;
+  }
+  h3 {
+    @apply text-2xl font-medium tracking-tight;
+  }
+  p {
+    @apply text-lg leading-relaxed text-foreground;
+  }
+}
+
+.container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+}
