@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header className="sticky top-4 container z-20">
+    <header className="sticky top-4 w-full z-20 px-4">
       <div className="border border-outline backdrop-blur-md  rounded-xl flex items-center justify-between px-4 py-2">
         <div className="flex items-center gap-4">
           <Link href="/" className="flex gap-1">
