@@ -25,7 +25,7 @@ const LastNewsBanner = () => {
           className="rounded-xl object-cover"
         />
         <div className="absolute inset-0 bg-backgroundSecondary/20 backdrop-blur-sm rounded-xl z-[1]" />
-        <div className="absolute inset-0 z-[20] flex gap-4 flex-col items-center justify-center">
+        <div className="absolute inset-0 z-[2] flex gap-4 flex-col items-center justify-center">
           <NewsCategoryBadge category={NEWS.category} />
           <h2 className="text-[#d4d4d4]">{NEWS.title}</h2>
           <DateDisplay date={NEWS.dateCreated} />
