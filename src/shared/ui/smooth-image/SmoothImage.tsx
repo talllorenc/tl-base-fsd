@@ -12,21 +12,20 @@ const SmoothImage = ({ containerHeight = 300, ...props }: SmoothImageProps) => {
 
   return (
     <div
-      className="relative overflow-hidden"
+      className={cn(
+        "relative overflow-hidden",
+        !loaded ? "animate-pulse bg-backgroundSecondary" : "animate-none"
+      )}
       style={{ height: containerHeight }}
     >
-      {!loaded && (
-        <div className="absolute inset-0 bg-backgroundSecondary animate-pulse transition-all rounded-xl" />
-      )}
-
       <Image
         {...props}
-        onLoad={() => setLoaded(true)}
         className={cn(
           "duration-700 ease-in-out transition-opacity",
           loaded ? "opacity-100" : "opacity-0",
           props.className
         )}
+        onLoad={() => setLoaded(true)}
       />
     </div>
   );
