@@ -1,34 +1,35 @@
 import { LeftMenuItem } from "./types";
+import { Database, Info, Phone, Newspaper, Users } from "lucide-react";
 
 export const leftMenuItems: LeftMenuItem[] = [
   {
     id: 1,
     title: "Data",
     href: "/posts",
-    icon: "/LeftMenu/data-menu.png",
+    icon: Database,
   },
   {
     id: 2,
     title: "About",
     href: "/about",
-    icon: "/LeftMenu/about-menu.png",
+    icon: Info,
   },
   {
     id: 3,
     title: "Contacts",
     href: "/contacts",
-    icon: "/LeftMenu/contacts-menu.png",
+    icon: Phone,
   },
   {
     id: 4,
     title: "News",
     href: "/news",
-    icon: "/LeftMenu/news-menu.png",
+    icon: Newspaper,
   },
   {
     id: 5,
     title: "Users",
     href: "/users",
-    icon: "/LeftMenu/users-menu.png",
+    icon: Users,
   },
 ];

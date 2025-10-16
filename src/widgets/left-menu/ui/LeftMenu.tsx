@@ -1,16 +1,11 @@
-import Link from "next/link";
-import { leftMenuItems } from "../model/leftMenuItems";
+import LeftMenuNavigation from "./LeftMenuNavigation";
 
 const LeftMenu = () => {
   return (
-    <aside>
-      <nav className="flex flex-col gap-2">
-        {leftMenuItems.map((link) => (
-          <Link key={link.id} href={link.href}>
-            {link.title}
-          </Link>
-        ))}
-      </nav>
+    <aside className="hidden lg:block sticky top-[92px] h-[calc(100vh-120px)] overflow-y-auto max-w-[300px] w-full">
+      <div className="">
+        <LeftMenuNavigation />
+      </div>
     </aside>
   );
 };
