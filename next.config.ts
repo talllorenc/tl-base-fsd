@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["wallpapers.com"],
+    domains: ["api.tl-base.kz"],
   },
 };
 

@@ -1,3 +1,4 @@
 import NewsCategoryBadge from "./ui/NewsCategoryBadge";
+import NewsList from "./ui/NewsList";
 
-export { NewsCategoryBadge };
+export { NewsCategoryBadge, NewsList };

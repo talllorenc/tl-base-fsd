@@ -4,30 +4,20 @@ import Image, { ImageProps } from "next/image";
 import { useState } from "react";
 import { cn } from "@/shared/lib/utils/utils";
 
-interface SmoothImageProps extends ImageProps {
-  containerHeight?: number;
-}
-const SmoothImage = ({ containerHeight = 300, ...props }: SmoothImageProps) => {
+const SmoothImage = ({ ...props }: ImageProps) => {
   const [loaded, setLoaded] = useState<boolean>(false);
 
   return (
-    <div
+    <Image
+      fill
+      {...props}
       className={cn(
-        "relative overflow-hidden",
-        !loaded ? "animate-pulse bg-backgroundSecondary" : "animate-none"
+        "duration-700 ease-in-out transition-opacity",
+        loaded ? "opacity-100" : "opacity-0",
+        props.className
       )}
-      style={{ height: containerHeight }}
-    >
-      <Image
-        {...props}
-        className={cn(
-          "duration-700 ease-in-out transition-opacity",
-          loaded ? "opacity-100" : "opacity-0",
-          props.className
-        )}
-        onLoad={() => setLoaded(true)}
-      />
-    </div>
+      onLoad={() => setLoaded(true)}
+    />
   );
 };
 

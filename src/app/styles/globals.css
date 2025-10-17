@@ -73,5 +73,35 @@
   max-width: 1440px;
   width: 100%;
   margin: 0 auto;
-  padding: 32px 16px;
+  padding: 32px 0;
+}
+
+/* Параграфы */
+.tt-paragraph {
+  margin-bottom: 16px;
+}
+
+.tt-paragraph-list-item p{
+  margin: 0;
+  color: var(--foreground-secondary);
+}
+
+/* Маркированный список */
+.tt-bulletlist {
+  list-style-type: disc;
+  padding-left: 24px;
+}
+
+.tt-bulletlist li {
+  margin-left: 16px;
+}
+
+/* Нумерованный список */
+.tt-orderedlist {
+  list-style-type: decimal;
+  padding-left: 24px;
+}
+
+.tt-orderedlist li {
+  margin-left: 16px;
 }
