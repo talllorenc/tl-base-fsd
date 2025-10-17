@@ -1,3 +1,5 @@
+"use client";
+
 import { NewsList } from "@/entities/news";
 
 const NewsPage = () => {

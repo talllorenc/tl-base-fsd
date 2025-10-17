@@ -1,3 +1,5 @@
+"use client";
+
 import { LastNewsBanner } from "@/widgets/last-news-banner";
 
 const HomePage = () => {
