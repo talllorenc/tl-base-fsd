@@ -53,6 +53,4 @@ const LastNewsBanner = () => {
   );
 };
 
-// {"/uploads/1748840996075-619659122.jpg"}
-
 export default LastNewsBanner;

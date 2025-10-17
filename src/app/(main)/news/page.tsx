@@ -1,9 +1,18 @@
-import NewsPage from "@/pages/news/ui/NewsPage"
+import { NewsList } from "@/entities/news";
 
 const Page = () => {
   return (
-    <NewsPage/>
-  )
-}
+    <>
+      <h1>Portal News</h1>
+      <p className="text-foregroundSecondary">
+        Latest news and updates from tl-base
+      </p>
 
-export default Page
+      <div className="mt-8">
+        <NewsList />
+      </div>
+    </>
+  );
+};
+
+export default Page;
