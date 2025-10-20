@@ -1,6 +1,6 @@
 import { categoryColors } from "../types/constants";
 import { INewsCategoryBadgeProps } from "../types/types";
-import { cn } from "@/shared/lib/utils/utils";
+import { cn } from "@/utils/utils";
 
 const NewsCategoryBadge = ({ category }: INewsCategoryBadgeProps) => {
   return (

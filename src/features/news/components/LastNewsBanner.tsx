@@ -1,14 +1,12 @@
 "use client";
 
-import { NewsCategoryBadge } from "@/entities/news";
-import {
-  DateDisplay,
-  ErrorAxios,
-  LoadingContainer,
-  SmoothImage,
-} from "@/shared/ui";
-import { useLatestNews } from "../model/useLatestNews";
 import Link from "next/link";
+import { useLatestNews } from "../hooks/useLatestNews";
+import LoadingContainer from "@/components/ui/loading-container/LoadingContainer";
+import ErrorAxios from "@/components/ui/error-axios/ErrorAxios";
+import SmoothImage from "@/components/ui/smooth-image/SmoothImage";
+import NewsCategoryBadge from "./NewsCategoryBadge";
+import DateDisplay from "@/components/ui/date-display/DateDisplay";
 
 const LastNewsBanner = () => {
   const { data: news, isLoading, isError } = useLatestNews();
@@ -52,7 +50,5 @@ const LastNewsBanner = () => {
     </div>
   );
 };
-
-// {"/uploads/1748840996075-619659122.jpg"}
 
 export default LastNewsBanner;

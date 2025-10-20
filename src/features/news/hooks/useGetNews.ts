@@ -1,20 +1,21 @@
-"use client";
-
-import { useQuery } from "@tanstack/react-query";
-import NewsService from "@/entities/news/api/api";
-import QUERY_KEYS from "@/shared/config/query.keys.config";
+import { queryOptions, useQuery } from "@tanstack/react-query";
 import { IGetNewsQueryParams } from "../types/types";
+import QUERY_KEYS from "@/config/query.keys.config";
+import NewsService from "../api/api";
 
-export const useGetNews = (params?: IGetNewsQueryParams) => {
-  return useQuery({
-    queryKey: [QUERY_KEYS.news.all, params],
+type UseNewsOptions = {
+  params?: IGetNewsQueryParams;
+};
+
+export const getNewsQueryOptions = (params: IGetNewsQueryParams = {}) => {
+  return queryOptions({
+    queryKey: [QUERY_KEYS.news, params],
     queryFn: () => NewsService.getNews(params),
   });
 };
 
-export const useGetNewsBySlug = (slug: string) => {
+export const useNews = ({ params }: UseNewsOptions = {}) => {
   return useQuery({
-    queryKey: [QUERY_KEYS.news.all, slug],
-    queryFn: () => NewsService.getNewsBySlug(slug),
+    ...getNewsQueryOptions(params),
   });
 };

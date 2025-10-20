@@ -1,8 +1,8 @@
 "use client";
 
+import { cn } from "@/utils/utils";
 import Image, { ImageProps } from "next/image";
 import { useState } from "react";
-import { cn } from "@/shared/lib/utils/utils";
 
 const SmoothImage = ({ ...props }: ImageProps) => {
   const [loaded, setLoaded] = useState<boolean>(false);

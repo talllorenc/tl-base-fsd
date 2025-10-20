@@ -1,6 +1,6 @@
 import axios from "axios";
-import { API_ROUTES } from "@/shared/config/api.config";
 import { IGetNewsQueryParams, INewsItem, INewsResponse } from "../types/types";
+import { API_ROUTES } from "@/config/api.config";
 
 class NewsService {
   async getNews(params: IGetNewsQueryParams = {}) {

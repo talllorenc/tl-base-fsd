@@ -1,8 +1,8 @@
 "use client";
 
+import QUERY_KEYS from "@/config/query.keys.config";
 import { useQuery } from "@tanstack/react-query";
-import NewsService from "@/entities/news/api/api";
-import QUERY_KEYS from "@/shared/config/query.keys.config";
+import NewsService from "../api/api";
 
 export const useLatestNews = () => {
   return useQuery({

@@ -1,4 +1,4 @@
-import { cn } from "@/shared/lib/utils/utils";
+import { cn } from "@/utils/utils";
 import { Calendar } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { format } from "date-fns";

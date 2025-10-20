@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "@/shared/lib/utils/utils";
+import { cn } from "@/utils/utils";
 
 interface ILoadingContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   containerHeight?: number;

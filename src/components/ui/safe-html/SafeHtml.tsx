@@ -1,7 +1,7 @@
 "use client";
 
 import DOMPurify from "dompurify";
-import { cn } from "@/shared/lib/utils/utils";
+import { cn } from "@/utils/utils";
 
 interface ISafeHtmlProps extends React.HTMLAttributes<HTMLDivElement> {
   html: string;

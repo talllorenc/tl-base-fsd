@@ -1,7 +1,7 @@
-import { Breadcrumb } from "@/shared/ui";
-import { Header } from "@/widgets/header";
-import { LeftMenu } from "@/widgets/left-menu";
-import { RightMenu } from "@/widgets/right-menu";
+import Breadcrumb from "@/components/ui/breadcrumb/Breadcrumb";
+import Header from "@/components/ui/header/Header";
+import LeftMenu from "@/components/ui/left-menu/LeftMenu";
+import RightMenu from "@/components/ui/right-menu/RightMenu";
 
 export default function MainLayout({
   children,

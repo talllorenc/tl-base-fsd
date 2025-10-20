@@ -1,7 +1,7 @@
 import React from "react";
-import { leftMenuItems } from "../model/leftMenuItems";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
+import { leftMenuItems } from "./leftMenuItems";
 
 const LeftMenuNavigation = () => {
   return (
