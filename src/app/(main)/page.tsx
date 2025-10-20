@@ -1,4 +1,4 @@
-import { LastNewsBanner } from "@/widgets/last-news-banner";
+import LastNewsBanner from "@/features/news/components/LastNewsBanner";
 
 export default function Page() {
   return (

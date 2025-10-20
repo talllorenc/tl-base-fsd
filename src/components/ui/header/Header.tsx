@@ -1,4 +1,3 @@
-import { Button } from "@/shared/ui";
 import Link from "next/link";
 
 const Header = () => {
