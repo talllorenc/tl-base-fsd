@@ -14,6 +14,7 @@
   --color-infoBackground: var(--info-background);
   --color-infoForeground: var(--info-foreground);
   --color-infoOutline: var(--info-outline);
+  --color-tableHeader: var(--table-header);
 }
 
 :root {
@@ -31,6 +32,8 @@
   --info-background: #ebf4fb;
   --info-foreground: #5caef1;
   --info-outline: #c1e3fe;
+
+  --table-header: #f5f5f5;
 }
 
 .dark {
@@ -48,6 +51,8 @@
   --info-background: #ebf4fb;
   --info-foreground: #1061a3;
   --info-outline: #c1e3fe;
+
+  --table-header: #353535;
 }
 
 @layer base {
@@ -79,9 +84,10 @@
 /* Параграфы */
 .tt-paragraph {
   margin-bottom: 16px;
+  color: var(--foreground-secondary);
 }
 
-.tt-paragraph-list-item p{
+.tt-paragraph-list-item p {
   margin: 0;
   color: var(--foreground-secondary);
 }
@@ -105,3 +111,5 @@
 .tt-orderedlist li {
   margin-left: 16px;
 }
+
+/* Select */

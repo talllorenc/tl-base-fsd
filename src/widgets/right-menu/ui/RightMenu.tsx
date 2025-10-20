@@ -1,6 +1,6 @@
 "use client";
 
-import { useRightMenuVisibility } from "@/shared/lib/utils/useRightMenuVisibility";
+import { useRightMenuVisibility } from "@/shared/lib/hooks/useRightMenuVisibility";
 
 const RightMenu = () => {
   const { isVisible } = useRightMenuVisibility();

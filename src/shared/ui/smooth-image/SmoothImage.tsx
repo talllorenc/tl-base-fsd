@@ -10,6 +10,7 @@ const SmoothImage = ({ ...props }: ImageProps) => {
   return (
     <Image
       fill
+      sizes="100vh"
       {...props}
       className={cn(
         "duration-700 ease-in-out transition-opacity",

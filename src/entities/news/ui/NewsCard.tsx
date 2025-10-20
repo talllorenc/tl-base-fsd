@@ -18,7 +18,7 @@ const NewsCard = ({ item }: INewsCardProps) => {
         {item.imagePath.length ? (
           <SmoothImage
             src={`${process.env.NEXT_PUBLIC_SERVER_URL}${item.imagePath[0]}`}
-            alt="Last news banner"
+            alt={item.title}
             className="rounded-xl object-cover"
           />
         ) : (

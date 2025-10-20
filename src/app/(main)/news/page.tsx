@@ -1,9 +1,7 @@
-import NewsPage from "@/pages/news/ui/NewsPage"
+import NewsPage from "@/pages-ui/news/NewsPage"
 
 const Page = () => {
-  return (
-    <NewsPage/>
-  )
+  return <NewsPage />
 }
 
 export default Page

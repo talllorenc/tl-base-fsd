@@ -11,3 +11,10 @@ export const useGetNews = (params?: IGetNewsQueryParams) => {
     queryFn: () => NewsService.getNews(params),
   });
 };
+
+export const useGetNewsBySlug = (slug: string) => {
+  return useQuery({
+    queryKey: [QUERY_KEYS.news.all, slug],
+    queryFn: () => NewsService.getNewsBySlug(slug),
+  });
+};
