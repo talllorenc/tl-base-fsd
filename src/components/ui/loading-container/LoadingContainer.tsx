@@ -6,7 +6,7 @@ interface ILoadingContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   text?: string;
 }
 
-const LoadingContainer = ({
+export const LoadingContainer = ({
   containerHeight = 300,
   text,
   ...props
@@ -20,5 +20,3 @@ const LoadingContainer = ({
     </div>
   );
 };
-
-export default LoadingContainer;

@@ -6,10 +6,10 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/shared/ui";
+} from "@/components/ui/select";
 import { useRouter, useSearchParams } from "next/navigation";
 
-const NewsFilter = () => {
+export const NewsFilter = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const categoryParam =
@@ -57,5 +57,3 @@ const NewsFilter = () => {
     </div>
   );
 };
-
-export default NewsFilter;

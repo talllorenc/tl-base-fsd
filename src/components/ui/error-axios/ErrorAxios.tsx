@@ -1,6 +1,6 @@
 import { TriangleAlert } from "lucide-react";
 
-const ErrorAxios = () => {
+export const ErrorAxios = () => {
   return (
     <div className="w-full bg-errorBackground border border-errorOutline p-4 rounded-xl">
       <div className="flex items-start gap-2">
@@ -15,5 +15,3 @@ const ErrorAxios = () => {
     </div>
   );
 };
-
-export default ErrorAxios;

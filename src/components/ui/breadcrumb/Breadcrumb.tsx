@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { ChevronRight, Home } from "lucide-react";
 
-const Breadcrumb = () => {
+export const Breadcrumb = () => {
   const paths = usePathname();
 
   if (paths === "/") return null;
@@ -52,5 +52,3 @@ const Breadcrumb = () => {
     </nav>
   );
 };
-
-export default Breadcrumb;

@@ -6,3 +6,4 @@ export * from './NewsFilter';
 export * from './NewsList';
 export * from './NewsSearch';
 export * from './NewsSort';
+export * from './NewsPagination';

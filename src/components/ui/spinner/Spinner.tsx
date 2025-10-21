@@ -1,5 +1,5 @@
 import { Loader2 } from "lucide-react";
-import { cn } from "@/utils/utils";
+import { cn } from "@/utils";
 
 interface ISpinnerProps {
   size?: number | string;
@@ -7,7 +7,7 @@ interface ISpinnerProps {
   className?: string;
 }
 
-const Spinner = ({ size = 24, color, className }: ISpinnerProps) => {
+export const Spinner = ({ size = 24, color, className }: ISpinnerProps) => {
   return (
     <div className={cn("flex items-center justify-center w-fit", className)}>
       <Loader2
@@ -21,5 +21,3 @@ const Spinner = ({ size = 24, color, className }: ISpinnerProps) => {
     </div>
   );
 };
-
-export default Spinner;

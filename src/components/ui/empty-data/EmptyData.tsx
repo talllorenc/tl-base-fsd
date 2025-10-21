@@ -6,7 +6,7 @@ interface IEmptyDataProps {
   icon?: ElementType;
 }
 
-const EmptyData = ({
+export const EmptyData = ({
   text = "No data",
   icon: Icon = LayoutList,
 }: IEmptyDataProps) => {
@@ -17,5 +17,3 @@ const EmptyData = ({
     </div>
   );
 };
-
-export default EmptyData;

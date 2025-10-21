@@ -1,21 +1,24 @@
 "use client";
 
-import { useGetNewsBySlug } from "../model/useGetNews";
-import {
-  ErrorAxios,
-  Spinner,
-  DateDisplay,
-  SafeHtml,
-  SmoothImage,
-} from "@/shared/ui";
+import { Spinner } from "@/components/ui/spinner";
+import { useNewsBySlugQueryOptions } from "../hooks";
 import NewsCategoryBadge from "./NewsCategoryBadge";
+import { ErrorAxios } from "@/components/ui/error-axios";
+import { DateDisplay } from "@/components/ui/date-display";
+import { SmoothImage } from "@/components/ui/smooth-image";
+import { SafeHtml } from "@/components/ui/safe-html";
+import { useQuery } from "@tanstack/react-query";
 
 interface INewsDetailContentProps {
   slug: string;
 }
 
 const NewsDetailContent = ({ slug }: INewsDetailContentProps) => {
-  const { data: news, isLoading, isError } = useGetNewsBySlug(slug);
+  const {
+    data: news,
+    isLoading,
+    isError,
+  } = useQuery(useNewsBySlugQueryOptions(slug));
 
   if (isLoading) {
     return (
@@ -41,19 +44,19 @@ const NewsDetailContent = ({ slug }: INewsDetailContentProps) => {
       </div>
 
       <h1 className="mt-2">{news.title}</h1>
-
-      <div className="relative h-[500px] rounded-xl overflow-hidden group-hover:opacity-70 duration-200 mt-4 border border-outline">
-        {news.imagePath.length && (
+      
+      {news.imagePath.length && (
+        <div className="relative h-[500px] rounded-xl overflow-hidden group-hover:opacity-70 duration-200 mt-8 border border-outline">
           <SmoothImage
             src={`${process.env.NEXT_PUBLIC_SERVER_URL}${news.imagePath[0]}`}
             alt={news.title}
             className="rounded-xl object-cover"
           />
-        )}
-      </div>
+        </div>
+      )}
 
       <div className="mt-8">
-        <SafeHtml html={news.desc}/>
+        <SafeHtml html={news.desc} />
       </div>
     </>
   );

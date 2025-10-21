@@ -1,13 +1,13 @@
 "use client";
 
 import DOMPurify from "dompurify";
-import { cn } from "@/utils/utils";
+import { cn } from "@/utils";
 
 interface ISafeHtmlProps extends React.HTMLAttributes<HTMLDivElement> {
   html: string;
 }
 
-const SafeHtml = ({ html, ...props }: ISafeHtmlProps) => {
+export const SafeHtml = ({ html, ...props }: ISafeHtmlProps) => {
   return (
     <div
       className={cn(props.className)}
@@ -15,5 +15,3 @@ const SafeHtml = ({ html, ...props }: ISafeHtmlProps) => {
     />
   );
 };
-
-export default SafeHtml;

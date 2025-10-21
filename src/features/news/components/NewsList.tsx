@@ -3,13 +3,14 @@
 import { buildApiParams } from "@/utils/buildApiParams";
 import NewsCard from "./NewsCard";
 import { useSearchParams } from "next/navigation";
-import useNewsQueryOptions from "../hooks/useGetNews";
+import useNewsQueryOptions from "../hooks/useNewsQueryOptions";
 import { useQuery } from "@tanstack/react-query";
-import Spinner from "@/components/ui/spinner/Spinner";
-import ErrorAxios from "@/components/ui/error-axios/ErrorAxios";
-import EmptyData from "@/components/ui/empty-data/EmptyData";
+import { Spinner } from "@/components/ui/spinner";
+import { ErrorAxios } from "@/components/ui/error-axios";
+import { EmptyData } from "@/components/ui/empty-data";
+import { NewsPagination } from "./NewsPagination";
 
-const NewsList = () => {
+export const NewsList = () => {
   const searchParams = useSearchParams();
   const params = buildApiParams(searchParams);
 
@@ -18,7 +19,7 @@ const NewsList = () => {
     isLoading,
     isError,
     isPlaceholderData,
-  } = useQuery(useNewsQueryOptions({ page: 1, perPage: 10, ...params }));
+  } = useQuery(useNewsQueryOptions({ page: 1, perPage: 9, ...params }));
 
   if (isLoading) {
     return (
@@ -37,16 +38,20 @@ const NewsList = () => {
   }
 
   return (
-    <div
-      className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 w-full ${
-        isPlaceholderData && "animate-pulse"
-      }`}
-    >
-      {news.data.map((item) => (
-        <NewsCard key={item.id} item={item} />
-      ))}
-    </div>
+    <>
+      <div
+        className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 w-full ${
+          isPlaceholderData && "animate-pulse"
+        }`}
+      >
+        {news.data.map((item) => (
+          <NewsCard key={item.id} item={item} />
+        ))}
+      </div>
+
+      <div className="mt-8">
+        <NewsPagination meta={news.meta} />
+      </div>
+    </>
   );
 };
-
-export default NewsList;

@@ -1,1 +1,1 @@
-export * from "./useGetNews";
+export * from "./useNewsQueryOptions";

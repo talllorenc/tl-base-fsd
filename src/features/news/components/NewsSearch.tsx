@@ -1,10 +1,12 @@
-import { Input } from "@/shared/ui";
+"use client";
+
+import Input from "@/components/ui/input/Input";
 import { Search } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import { useDebouncedCallback } from "use-debounce";
 
-const NewsSearch = () => {
+export const NewsSearch = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -35,5 +37,3 @@ const NewsSearch = () => {
     </div>
   );
 };
-
-export default NewsSearch;

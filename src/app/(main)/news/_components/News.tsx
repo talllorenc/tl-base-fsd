@@ -1,10 +1,12 @@
-"use client";
+import {
+  NewsSort,
+  NewsFilter,
+  NewsSearch,
+  NewsList,
+  NewsPagination,
+} from "@/features/news/components";
 
-import { NewsList } from "@/entities/news";
-import { NewsFilter, NewsSort } from "@/features/news";
-import NewsSearch from "@/features/news/search/ui/NewsSearch";
-
-const NewsPage = () => {
+const News = () => {
   return (
     <>
       <h1>Portal News</h1>
@@ -24,8 +26,9 @@ const NewsPage = () => {
       <div className="mt-8">
         <NewsList />
       </div>
+
     </>
   );
 };
 
-export default NewsPage;
+export default News;

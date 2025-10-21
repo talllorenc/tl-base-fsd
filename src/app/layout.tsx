@@ -1,10 +1,10 @@
 import { Roboto } from "next/font/google";
 import "./styles/globals.css";
-import { ThemeProvider } from "next-themes";
-import { AuthProvider } from "./providers/AuthProvider";
-import QueryProvider from "./providers/QueryProvider";
 import { ToastContainer } from "react-toastify";
 import NextTopLoader from "nextjs-toploader";
+import ThemeProvider from "./providers/ThemeProvider";
+import QueryProvider from "./providers/QueryProvider";
+import { AuthProvider } from "./providers/AuthProvider";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -22,7 +22,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={`${roboto.className} dark`}>
+      <body className={`${roboto.className}`}>
         <ThemeProvider>
           <QueryProvider>
             <AuthProvider user={null}>

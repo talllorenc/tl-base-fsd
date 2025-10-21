@@ -1,16 +1,14 @@
 "use client";
 
-import { useRightMenuVisibility } from "@/hooks/useRightMenuVisibility";
+import { useRightMenuVisibility } from "@/hooks";
 
-const RightMenu = () => {
+export const RightMenu = () => {
   const { isVisible } = useRightMenuVisibility();
   if (!isVisible) return null;
   
   return (
-    <div className="hidden xl:block sticky top-[92px] h-[calc(100vh-120px)] overflow-y-auto max-w-[300px] w-full">
+    <aside className="hidden xl:block sticky top-[92px] h-[calc(100vh-120px)] overflow-y-auto max-w-[300px] w-full">
       right menu
-    </div>
+    </aside>
   );
 };
-
-export default RightMenu;
