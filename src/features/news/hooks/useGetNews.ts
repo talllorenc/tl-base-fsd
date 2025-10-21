@@ -1,21 +1,35 @@
-import { queryOptions, useQuery } from "@tanstack/react-query";
-import { IGetNewsQueryParams } from "../types/types";
+import { queryOptions, UseQueryOptions } from "@tanstack/react-query";
+import { IGetNewsQueryParams, INewsItem, INewsResponse } from "../types/types";
 import QUERY_KEYS from "@/config/query.keys.config";
 import NewsService from "../api/api";
 
-type UseNewsOptions = {
-  params?: IGetNewsQueryParams;
-};
-
-export const getNewsQueryOptions = (params: IGetNewsQueryParams = {}) => {
+export default function useNewsQueryOptions<
+  TData = INewsResponse,
+  TError = Error
+>(
+  params?: IGetNewsQueryParams,
+  options?: Omit<
+    UseQueryOptions<INewsResponse, TError, TData>,
+    "queryKey" | "queryFn"
+  >
+) {
   return queryOptions({
+    ...options,
     queryKey: [QUERY_KEYS.news, params],
     queryFn: () => NewsService.getNews(params),
   });
-};
+}
 
-export const useNews = ({ params }: UseNewsOptions = {}) => {
-  return useQuery({
-    ...getNewsQueryOptions(params),
+export function useNewsBySlugQueryOptions<TData = INewsItem, TError = Error>(
+  slug: string,
+  options?: Omit<
+    UseQueryOptions<INewsItem, TError, TData>,
+    "queryKey" | "queryFn"
+  >
+) {
+  return queryOptions({
+    ...options,
+    queryKey: [QUERY_KEYS.news, slug],
+    queryFn: () => NewsService.getNewsBySlug(slug),
   });
-};
+}

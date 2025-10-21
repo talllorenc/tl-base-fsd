@@ -1,8 +1,10 @@
 import { INewsItem } from "../types/types";
-import { DateDisplay, SafeHtml, SmoothImage } from "@/shared/ui";
 import Link from "next/link";
 import { ImageOff } from "lucide-react";
 import NewsCategoryBadge from "./NewsCategoryBadge";
+import SmoothImage from "@/components/ui/smooth-image/SmoothImage";
+import SafeHtml from "@/components/ui/safe-html/SafeHtml";
+import DateDisplay from "@/components/ui/date-display/DateDisplay";
 
 interface INewsCardProps {
   item: INewsItem;

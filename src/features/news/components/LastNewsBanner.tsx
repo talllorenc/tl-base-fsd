@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useLatestNews } from "../hooks/useLatestNews";
+import { useLatestNews } from "@/features/news";
 import LoadingContainer from "@/components/ui/loading-container/LoadingContainer";
 import ErrorAxios from "@/components/ui/error-axios/ErrorAxios";
 import SmoothImage from "@/components/ui/smooth-image/SmoothImage";

@@ -1,10 +1,13 @@
 "use client";
 
-import { useGetNews } from "../model/useGetNews";
+import { buildApiParams } from "@/utils/buildApiParams";
 import NewsCard from "./NewsCard";
-import { EmptyData, ErrorAxios, Spinner } from "@/shared/ui";
 import { useSearchParams } from "next/navigation";
-import { buildApiParams } from "@/shared/lib/utils/buildApiParams";
+import useNewsQueryOptions from "../hooks/useGetNews";
+import { useQuery } from "@tanstack/react-query";
+import Spinner from "@/components/ui/spinner/Spinner";
+import ErrorAxios from "@/components/ui/error-axios/ErrorAxios";
+import EmptyData from "@/components/ui/empty-data/EmptyData";
 
 const NewsList = () => {
   const searchParams = useSearchParams();
@@ -15,11 +18,7 @@ const NewsList = () => {
     isLoading,
     isError,
     isPlaceholderData,
-  } = useGetNews({
-    page: 1,
-    perPage: 5,
-    ...params,
-  });
+  } = useQuery(useNewsQueryOptions({ page: 1, perPage: 10, ...params }));
 
   if (isLoading) {
     return (

@@ -1,5 +1,5 @@
-import { cn } from "@/shared/lib/utils/utils";
 import { Loader2 } from "lucide-react";
+import { cn } from "@/utils/utils";
 
 interface ISpinnerProps {
   size?: number | string;
