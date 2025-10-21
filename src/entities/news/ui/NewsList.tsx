@@ -1,10 +1,11 @@
 "use client";
 
-import { useGetNews } from "../model/useGetNews";
+import useNewsQueryOptions from "../model/useNewsQueryOptions";
 import NewsCard from "./NewsCard";
 import { EmptyData, ErrorAxios, Spinner } from "@/shared/ui";
 import { useSearchParams } from "next/navigation";
 import { buildApiParams } from "@/shared/lib/utils/buildApiParams";
+import { useQuery } from "@tanstack/react-query";
 
 const NewsList = () => {
   const searchParams = useSearchParams();
@@ -15,11 +16,7 @@ const NewsList = () => {
     isLoading,
     isError,
     isPlaceholderData,
-  } = useGetNews({
-    page: 1,
-    perPage: 5,
-    ...params,
-  });
+  } = useQuery(useNewsQueryOptions({ page: 1, perPage: 9, ...params }, {select: (data) => data.data}));
 
   if (isLoading) {
     return (
@@ -33,7 +30,7 @@ const NewsList = () => {
     return <ErrorAxios />;
   }
 
-  if (!news?.data.length) {
+  if (!news?.length) {
     return <EmptyData text="No news yet" />;
   }
 
@@ -43,7 +40,7 @@ const NewsList = () => {
         isPlaceholderData && "animate-pulse"
       }`}
     >
-      {news.data.map((item) => (
+      {news.map((item) => (
         <NewsCard key={item.id} item={item} />
       ))}
     </div>

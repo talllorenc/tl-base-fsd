@@ -15,6 +15,7 @@ import EmptyData from "./empty-data/EmptyData";
 import Input from "./input/Input";
 import Breadcrumb from "./breadcrumb/Breadcrumb";
 import Spinner from "./spinner/Spinner";
+import {MorphingText} from "./morphing-text/MorphingText";
 
 export {
   Button,
@@ -32,4 +33,5 @@ export {
   Input,
   Breadcrumb,
   Spinner,
+  MorphingText
 };
