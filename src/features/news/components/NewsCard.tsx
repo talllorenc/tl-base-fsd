@@ -41,14 +41,14 @@ const NewsCard = ({ item }: INewsCardProps) => {
 
   return (
     <Link
-      className="w-full flex flex-col border border-outline rounded-xl hover:opacity-80 transition-opacity duration-200 cursor-pointer overflow-hidden bg-backgroundSecondary"
+      className="w-full flex flex-col border border-outline group rounded-xl hover:opacity-80 transition-opacity duration-200 cursor-pointer overflow-hidden bg-backgroundSecondary"
       href={`/news/${item.slug}`}
       onMouseEnter={handlePrefetch}
       onMouseLeave={cancelPrefetch}
       onFocus={handlePrefetch}
       onBlur={cancelPrefetch}
     >
-      <div className="relative h-[200px] rounded-xl overflow-hidden">
+      <div className="relative h-[200px] rounded-xl overflow-hidden group-hover:opacity-80 transition-opacity duration-200">
         {item.imagePath.length ? (
           <SmoothImage
             src={`${process.env.NEXT_PUBLIC_SERVER_URL}${item.imagePath[0]}`}
@@ -69,7 +69,7 @@ const NewsCard = ({ item }: INewsCardProps) => {
         </div>
       </div>
       <div className="flex flex-col p-4 gap-4 flex-1">
-        <h3>{item.title}</h3>
+        <h3 className="group-hover:underline">{item.title}</h3>
         <SafeHtml
           html={item.desc}
           className="line-clamp-4 tt-paragraph-list-item"

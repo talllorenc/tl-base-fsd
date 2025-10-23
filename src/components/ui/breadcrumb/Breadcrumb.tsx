@@ -1,4 +1,3 @@
-
 "use client";
 
 import { usePathname } from "next/navigation";
@@ -17,7 +16,7 @@ const Breadcrumb = () => {
       <ol className="flex items-center gap-2 flex-wrap">
         <Link
           href="/"
-          className="flex items-center gap-2 border border-outline bg-cherry rounded-xl py-1 px-2 text-white hover:opacity-70 duration-200 transition"
+          className="flex items-center gap-2 border border-cherry bg-cherry rounded-xl py-1 px-2 text-white hover:opacity-70 duration-200 transition"
         >
           <Home size={16} />
           Home

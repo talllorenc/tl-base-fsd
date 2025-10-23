@@ -14,7 +14,7 @@ const Input = ({ icon: Icon, className, ...props }: IInputProps) => {
       )}
       <input
         className={cn(
-          "rounded-xl h-9 w-full pr-4 py-2 bg-tableHeader border border-outline outline-none focus:ring-2 focus:ring-foreground focus:border-transparent transition placeholder:text-foregroundSecondary disabled:cursor-not-allowed disabled:opacity-50",
+          "rounded-xl h-9 w-full pr-4 py-2 bg-tableHeader border border-outline outline-none hover:ring-2 hover:ring-foreground hover:border-transparent focus:ring-2 focus:ring-foreground focus:border-transparent transition placeholder:text-foregroundSecondary disabled:cursor-not-allowed disabled:opacity-50",
           Icon ? "pl-10" : "pl-4",
           className
         )}

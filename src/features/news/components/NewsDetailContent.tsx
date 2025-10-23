@@ -4,6 +4,7 @@ import {
   DateDisplay,
   ErrorAxios,
   SafeHtml,
+  ShareButton,
   SmoothImage,
   Spinner,
 } from "@/components/ui";
@@ -11,18 +12,16 @@ import { useNewsBySlugCreateQO } from "../hooks/useNewsBySlugQO";
 import NewsCategoryBadge from "./NewsCategoryBadge";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 interface INewsDetailContentProps {
   slug: string;
 }
 
-const LINKS = [
-  "https://www.google.com",
-  "https://www.facebook.com",
-  "https://dribbble.com/shots/26530423-UI-UX-Design-for-TraderTale-Social-Platform-for-Traders",
-];
-
 const NewsDetailContent = ({ slug }: INewsDetailContentProps) => {
+  const pathName = usePathname();
+  const URL = `${process.env.NEXT_PUBLIC_CLIENT_URL}${pathName}`;
+
   const {
     data: news,
     isLoading,
@@ -47,9 +46,12 @@ const NewsDetailContent = ({ slug }: INewsDetailContentProps) => {
 
   return (
     <>
-      <div className="flex items-center gap-4">
-        <NewsCategoryBadge category={news.category} />
-        <DateDisplay date={news.dateCreated} />
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          <NewsCategoryBadge category={news.category} />
+          <DateDisplay date={news.dateCreated} />
+        </div>
+        <ShareButton url={URL} />
       </div>
 
       <h1 className="mt-2">{news.title}</h1>
@@ -64,15 +66,15 @@ const NewsDetailContent = ({ slug }: INewsDetailContentProps) => {
         </div>
       )}
 
-      <div className="mt-8">
+      <div className="mt-8 bg-backgroundSecondary p-4 border border-outline rounded-xl">
         <SafeHtml html={news.desc} />
       </div>
 
-      {LINKS.length !== 0 && (
+      {news.links.length !== 0 && (
         <div className="mt-8">
           <p className="font-medium">Useful links</p>
           <div className="flex flex-col gap-2 mt-2">
-            {LINKS.map((link, index) => (
+            {news.links.map((link, index) => (
               <a
                 key={index}
                 href={link}
@@ -80,7 +82,7 @@ const NewsDetailContent = ({ slug }: INewsDetailContentProps) => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 h-9 px-4 bg-backgroundSecondary border border-outline rounded-xl hover:opacity-70 duration-200 w-fit max-w-full"
               >
-                <Link className="shrink-0" size={16}/>
+                <Link className="shrink-0" size={16} />
                 <span className="truncate block min-w-0 max-w-full">
                   {link}
                 </span>

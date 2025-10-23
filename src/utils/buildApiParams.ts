@@ -3,6 +3,7 @@ interface IGetParams {
   category?: "ANNOUNCEMENT" | "EVENT" | "UPDATE";
   search?: string;
   page?: number;
+  role?: "USER" | "ADMIN" | "TESTER";
 }
 
 export const buildApiParams = (searchParams: URLSearchParams) => {
@@ -30,6 +31,12 @@ export const buildApiParams = (searchParams: URLSearchParams) => {
   const page = searchParams.get("page");
   if (page) {
     params.page = Number(page);
+  }
+
+  // Role
+  const role = searchParams.get("role");
+  if (role) {
+    params.role = role as "USER" | "ADMIN" | "TESTER";
   }
 
   return params;

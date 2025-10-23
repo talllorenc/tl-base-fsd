@@ -13,7 +13,6 @@ export interface IChangePassword {
 
 export interface IUserItem {
   id: string;
-  email: string;
   firstName: string;
   lastName: string;
   role: "USER" | "ADMIN" | "TESTER";
@@ -48,8 +47,4 @@ export interface IGetUsersChartQueryParams {
 
 export interface IUserVerifiedBadgeProps {
   isVerified: boolean;
-}
-
-export interface IUserRoleBadgeProps {
-  role: "USER" | "ADMIN" | "TESTER";
 }

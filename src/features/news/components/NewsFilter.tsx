@@ -42,7 +42,7 @@ const NewsFilter = () => {
           <SelectValue placeholder="Filter by" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="ALL">All news</SelectItem>
+          <SelectItem value="ALL">All News</SelectItem>
           <SelectItem value="ANNOUNCEMENT">Announcement</SelectItem>
           <SelectItem value="EVENT">Event</SelectItem>
           <SelectItem value="UPDATE">Update</SelectItem>
