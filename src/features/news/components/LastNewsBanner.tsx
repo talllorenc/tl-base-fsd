@@ -1,13 +1,10 @@
 "use client";
 
+import { DateDisplay, ErrorAxios, LoadingContainer, SmoothImage } from "@/components/ui";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
-import useNewsQueryOptions from "../hooks/useNewsQueryOptions";
-import { LoadingContainer } from "@/components/ui/loading-container";
-import { ErrorAxios } from "@/components/ui/error-axios";
-import { SmoothImage } from "@/components/ui/smooth-image";
+import useNewsCreateQO from "../hooks/useNewsCreateQO";
 import NewsCategoryBadge from "./NewsCategoryBadge";
-import { DateDisplay } from "@/components/ui/date-display";
 
 const LastNewsBanner = () => {
   const {
@@ -15,7 +12,7 @@ const LastNewsBanner = () => {
     isLoading,
     isError,
   } = useQuery(
-    useNewsQueryOptions(
+    useNewsCreateQO(
       { page: 1, perPage: 1 },
       { select: (data) => data.data[0] }
     )
@@ -39,7 +36,7 @@ const LastNewsBanner = () => {
         {news.imagePath?.length ? (
           <SmoothImage
             src={`${process.env.NEXT_PUBLIC_SERVER_URL}${news.imagePath[0]}`}
-            alt="Last news banner"
+            alt={`Image for news: ${news.title}`}
             className="rounded-xl object-cover"
           />
         ) : null}

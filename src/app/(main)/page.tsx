@@ -1,4 +1,4 @@
-import Main from "./_components/Main";
+import { Main } from "@/features/main/pages";
 
 export const metadata = {
   title: "Main Page",

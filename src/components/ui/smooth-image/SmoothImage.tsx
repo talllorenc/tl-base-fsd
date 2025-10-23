@@ -1,15 +1,16 @@
 "use client";
 
-import { cn } from "@/utils";
+import { cn } from "@/utils/cn";
 import Image, { ImageProps } from "next/image";
 import { useState } from "react";
 
-export const SmoothImage = ({ ...props }: ImageProps) => {
+const SmoothImage = ({ alt, ...props }: ImageProps) => {
   const [loaded, setLoaded] = useState<boolean>(false);
 
   return (
     <Image
       fill
+      alt={alt}
       sizes="100vh"
       {...props}
       className={cn(
@@ -21,3 +22,5 @@ export const SmoothImage = ({ ...props }: ImageProps) => {
     />
   );
 };
+
+export default SmoothImage;

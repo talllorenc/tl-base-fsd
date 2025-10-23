@@ -1,22 +1,27 @@
-import React from "react";
-import { cn } from "@/utils/utils";
+import { HTMLAttributes } from "react";
+import { cn } from "@/utils/cn";
 
-interface ILoadingContainerProps extends React.HTMLAttributes<HTMLDivElement> {
+interface ILoadingContainerProps extends HTMLAttributes<HTMLDivElement> {
   containerHeight?: number;
   text?: string;
 }
 
-export const LoadingContainer = ({
+const LoadingContainer = ({
   containerHeight = 300,
   text,
   ...props
 }: ILoadingContainerProps) => {
   return (
     <div
-      className={cn("animate-pulse bg-backgroundSecondary border border-outline rounded-xl", props.className)}
+      className={cn(
+        "animate-pulse bg-backgroundSecondary border border-outline rounded-xl",
+        props.className
+      )}
       style={{ height: containerHeight }}
     >
       {text && <p>{text}</p>}
     </div>
   );
 };
+
+export default LoadingContainer;

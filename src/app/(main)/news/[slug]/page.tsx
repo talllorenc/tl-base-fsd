@@ -1,17 +1,17 @@
-import NewsDetails from "./_components/NewsDetails";
+import { NewsDetails } from "@/features/news/pages";
 
 export const metadata = {
   title: "News Details Page",
   description: "News Details Page",
 };
 
-const NewsDetailPage = async ({
+const NewsDetailsPage = async ({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) => {
-  const resolvedParams = await params;
-  return <NewsDetails slug={resolvedParams.slug} />;
+  const { slug } = await params;
+  return <NewsDetails slug={slug} />;
 };
 
-export default NewsDetailPage;
+export default NewsDetailsPage;

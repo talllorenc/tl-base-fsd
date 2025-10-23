@@ -1,15 +1,9 @@
 "use client";
 
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export const NewsFilter = () => {
+const NewsFilter = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const categoryParam =
@@ -57,3 +51,5 @@ export const NewsFilter = () => {
     </div>
   );
 };
+
+export default NewsFilter;

@@ -3,14 +3,12 @@
 import { buildApiParams } from "@/utils/buildApiParams";
 import NewsCard from "./NewsCard";
 import { useSearchParams } from "next/navigation";
-import useNewsQueryOptions from "../hooks/useNewsQueryOptions";
-import { useQuery } from "@tanstack/react-query";
-import { Spinner } from "@/components/ui/spinner";
-import { ErrorAxios } from "@/components/ui/error-axios";
-import { EmptyData } from "@/components/ui/empty-data";
-import { NewsPagination } from "./NewsPagination";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import useNewsCreateQO from "../hooks/useNewsCreateQO";
+import { EmptyData, ErrorAxios, Spinner } from "@/components/ui";
+import NewsPagination from "./NewsPagination";
 
-export const NewsList = () => {
+const NewsList = () => {
   const searchParams = useSearchParams();
   const params = buildApiParams(searchParams);
 
@@ -19,7 +17,14 @@ export const NewsList = () => {
     isLoading,
     isError,
     isPlaceholderData,
-  } = useQuery(useNewsQueryOptions({ page: 1, perPage: 9, ...params }));
+  } = useQuery(
+    useNewsCreateQO(
+      { page: 1, perPage: 9, ...params },
+      {
+        placeholderData: keepPreviousData,
+      }
+    )
+  );
 
   if (isLoading) {
     return (
@@ -55,3 +60,5 @@ export const NewsList = () => {
     </>
   );
 };
+
+export default NewsList;

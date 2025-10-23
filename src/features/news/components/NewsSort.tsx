@@ -3,7 +3,7 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { ArrowUpDown } from "lucide-react";
 
-export const NewsSort = () => {
+const NewsSort = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const sortParam = (searchParams.get("order") as "asc" | "desc") || "desc";

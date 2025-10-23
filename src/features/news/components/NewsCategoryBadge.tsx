@@ -1,12 +1,12 @@
-import { categoryColors } from "../types/constants";
-import { INewsCategoryBadgeProps } from "../types/";
-import { cn } from "@/utils";
+import { cn } from "@/utils/cn";
+import { INewsCategoryBadgeProps } from "../types";
+import { categoryColors } from "../constants";
 
 const NewsCategoryBadge = ({ category }: INewsCategoryBadgeProps) => {
   return (
     <div
       className={cn(
-        "w-fit shrink-0 py-1 px-2 text-xs rounded-full font-medium",
+        "w-fit shrink-0 h-7 px-4 text-xs rounded-full flex items-center font-medium",
         categoryColors[category]
       )}
     >

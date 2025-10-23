@@ -1,10 +1,11 @@
+
 "use client";
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { ChevronRight, Home } from "lucide-react";
 
-export const Breadcrumb = () => {
+const Breadcrumb = () => {
   const paths = usePathname();
 
   if (paths === "/") return null;
@@ -18,9 +19,9 @@ export const Breadcrumb = () => {
           href="/"
           className="flex items-center gap-2 border border-outline bg-cherry rounded-xl py-1 px-2 text-white hover:opacity-70 duration-200 transition"
         >
-          <Home className="w-4 h-4" />
+          <Home size={16} />
           Home
-          <ChevronRight className="w-4 h-4" />
+          <ChevronRight size={16} />
         </Link>
         {pathNames.map((path, index) => {
           const href = `/${pathNames.slice(0, index + 1).join("/")}`;
@@ -52,3 +53,5 @@ export const Breadcrumb = () => {
     </nav>
   );
 };
+
+export default Breadcrumb;

@@ -1,6 +1,6 @@
 "use client"
 
-import { cn } from "@/utils/utils"
+import { cn } from "@/utils/cn"
 import { useCallback, useEffect, useRef } from "react"
 
 const morphTime = 1.5

@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { Button } from "../button";
+import { Button } from "../button/Button";
 
-export const Header = () => {
+const Header = () => {
   return (
     <header className="sticky top-4 w-full z-20">
       <div className="px-4">
@@ -25,3 +25,5 @@ export const Header = () => {
     </header>
   );
 };
+
+export default Header;

@@ -1,21 +1,22 @@
-import axios from "axios";
 import { IGetNewsQueryParams, INewsItem, INewsResponse } from "../types/types";
-import { API_ROUTES } from "@/config/api.config";
+import { API, API_ROUTES } from "@/config/api";
 
 class NewsService {
   async getNews(params: IGetNewsQueryParams = {}) {
-    const { data } = await axios.get<INewsResponse>(API_ROUTES.NEWS, {
+    const { data } = await API.get<INewsResponse>(API_ROUTES.news, {
       params,
     });
     return data;
   }
 
   async getNewsBySlug(slug: string) {
-    const { data } = await axios.get<INewsItem>(
-      `${API_ROUTES.NEWS}/${slug}`
+    const { data } = await API.get<INewsItem>(
+      `${API_ROUTES.news}/${slug}`
     );
     return data;
   }
 }
 
-export default new NewsService();
+const newsService = new NewsService();
+
+export default newsService;

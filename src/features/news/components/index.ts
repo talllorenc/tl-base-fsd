@@ -1,9 +1,9 @@
-export * from './LastNewsBanner';
-export * from './NewsCard';
-export * from './NewsCategoryBadge';
-export * from './NewsDetailContent';
-export * from './NewsFilter';
-export * from './NewsList';
-export * from './NewsSearch';
-export * from './NewsSort';
-export * from './NewsPagination';
+export {default as LastNewsBanner} from "./LastNewsBanner";
+export {default as NewsCategoryBadge} from "./NewsCategoryBadge";
+export {default as NewsCard} from "./NewsCard";
+export {default as NewsList} from "./NewsList";
+export {default as NewsSort} from "./NewsSort";
+export {default as NewsFilter} from "./NewsFilter";
+export {default as NewsSearch} from "./NewsSearch";
+export {default as NewsPagination} from "./NewsPagination";
+export {default as NewsDetailContent} from "./NewsDetailContent";

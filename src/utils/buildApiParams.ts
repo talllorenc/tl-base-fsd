@@ -2,6 +2,7 @@ interface IGetParams {
   order?: "asc" | "desc";
   category?: "ANNOUNCEMENT" | "EVENT" | "UPDATE";
   search?: string;
+  page?: number;
 }
 
 export const buildApiParams = (searchParams: URLSearchParams) => {
@@ -23,6 +24,12 @@ export const buildApiParams = (searchParams: URLSearchParams) => {
   const search = searchParams.get("search");
   if (search) {
     params.search = search;
+  }
+
+  // Page
+  const page = searchParams.get("page");
+  if (page) {
+    params.page = Number(page);
   }
 
   return params;

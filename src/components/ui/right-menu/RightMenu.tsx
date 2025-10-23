@@ -1,8 +1,8 @@
 "use client";
 
-import { useRightMenuVisibility } from "@/hooks";
+import { useRightMenuVisibility } from "./model/useRightMenuVisibility";
 
-export const RightMenu = () => {
+const RightMenu = () => {
   const { isVisible } = useRightMenuVisibility();
   if (!isVisible) return null;
   
@@ -12,3 +12,5 @@ export const RightMenu = () => {
     </aside>
   );
 };
+
+export default RightMenu;

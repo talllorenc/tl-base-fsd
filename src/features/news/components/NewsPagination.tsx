@@ -1,15 +1,11 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ChevronRight, ChevronLeft } from "lucide-react";
-import { INewsMeta } from "../types";
+import { IMeta } from "@/types/api";
+import { Button } from "@/components/ui";
 
-interface INewsPaginationProps {
-    meta: INewsMeta;
-}
-
-export const NewsPagination = ({meta} : INewsPaginationProps) => {
+const NewsPagination = ({ meta }: { meta: IMeta }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const paginationParam = Number(searchParams.get("page")) || 1;
@@ -26,19 +22,28 @@ export const NewsPagination = ({meta} : INewsPaginationProps) => {
     router.replace(`?${newPaginationParam.toString()}`, { scroll: false });
   };
 
+  if (meta.totalPages <= 1) {
+    return null;
+  }
+
   return (
     <div className="flex items-center gap-4 max-w-sm mx-auto">
-      <Button onClick={handlePrevPage}>
+      <Button onClick={handlePrevPage} disabled={paginationParam <= 1}>
         <ChevronLeft />
         Previous
       </Button>
       <p>
-        <span>1</span>/<span>2</span>
+        <span>{meta.page}</span>/<span>{meta.totalPages}</span>
       </p>
-      <Button onClick={handleNextPage}>
+      <Button
+        onClick={handleNextPage}
+        disabled={paginationParam >= meta.totalPages}
+      >
         Next
         <ChevronRight />
       </Button>
     </div>
   );
 };
+
+export default NewsPagination;

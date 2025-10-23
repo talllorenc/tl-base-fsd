@@ -2,7 +2,7 @@ import { Calendar } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { format } from "date-fns";
 import { enUS } from "date-fns/locale";
-import { cn } from "@/utils";
+import { cn } from "@/utils/cn";
 
 type DateDisplayProps = {
   className?: string;
@@ -12,7 +12,7 @@ type DateDisplayProps = {
   withIcon?: boolean;
 };
 
-export const DateDisplay = ({
+const DateDisplay = ({
   date,
   className,
   withStartDate = true,
@@ -39,3 +39,5 @@ export const DateDisplay = ({
     </div>
   );
 };
+
+export default DateDisplay;
