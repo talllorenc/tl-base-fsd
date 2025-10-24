@@ -32,7 +32,7 @@ const UserDetailsContent = ({ id }: IUserDetailContentProps) => {
 
   return (
     <>
-      <div className="flex items-center gap-4 p-4 bg-backgroundSecondary border border-outline rounded-xl max-w-xl">
+      <div className="flex flex-col md:flex-row items-center gap-4 p-4 bg-backgroundSecondary border border-outline rounded-xl max-w-xl">
         <div className="relative w-32 h-32 border border-outline rounded-full overflow-hidden shrink-0">
           {user.imagePath ? (
             <SmoothImage
@@ -51,7 +51,7 @@ const UserDetailsContent = ({ id }: IUserDetailContentProps) => {
           )}
         </div>
 
-        <div className="flex flex-col gap-2 min-w-0">
+        <div className="flex flex-col items-center md:items-start gap-2 min-w-0">
           <h2 className="line-clamp-2 break-words">
             {user.firstName + " " + user.lastName}
           </h2>

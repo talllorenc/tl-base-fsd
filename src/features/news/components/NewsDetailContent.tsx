@@ -57,7 +57,7 @@ const NewsDetailContent = ({ slug }: INewsDetailContentProps) => {
       <h1 className="mt-2">{news.title}</h1>
 
       {news.imagePath.length && (
-        <div className="relative h-[200px] md:h-[500px] rounded-xl overflow-hidden group-hover:opacity-70 duration-200 mt-8 border border-outline">
+        <div className="relative h-[200px] md:h-[500px] rounded-xl overflow-hidden mt-8 border border-outline">
           <SmoothImage
             src={`${process.env.NEXT_PUBLIC_SERVER_URL}${news.imagePath[0]}`}
             alt={`Image for news: ${news.title}`}

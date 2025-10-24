@@ -7,3 +7,4 @@ export {default as NewsFilter} from "./NewsFilter";
 export {default as NewsSearch} from "./NewsSearch";
 export {default as NewsPagination} from "./NewsPagination";
 export {default as NewsDetailContent} from "./NewsDetailContent";
+export {default as LastNewsWidget} from "./LastNewsWidget";

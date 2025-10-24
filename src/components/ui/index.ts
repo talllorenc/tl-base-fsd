@@ -14,3 +14,4 @@ export { default as EmptyData } from "./empty-data/EmptyData";
 export { Select, SelectGroup, SelectValue, SelectTrigger, SelectContent, SelectItem } from "./select/Select";
 export { default as Input } from "./input/Input";
 export { default as ShareButton } from "./share-button/ShareButton";
+export { default as ThemeToggler } from "./theme-toggler/ThemeToggler";

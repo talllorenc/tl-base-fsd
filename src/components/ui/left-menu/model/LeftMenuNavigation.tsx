@@ -16,7 +16,7 @@ const LeftMenuNavigation = () => {
             <Link
               key={link.id}
               href={link.href}
-              className="flex items-center justify-between px-4 py-2 border border-background rounded-xl hover:bg-backgroundSecondary hover:border-outline transition"
+              className="flex items-center justify-between px-4 py-2 border border-background rounded-xl hover:bg-backgroundSecondary hover:border-outline transition-none"
             >
               <div className="flex items-center gap-2">
                 {Icon && <Icon className="w-5 h-5 text-muted-foreground" />}

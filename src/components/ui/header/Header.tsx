@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Button } from "../button/Button";
+import ThemeToggler from "../theme-toggler/ThemeToggler";
+import { paths } from "@/config/paths";
 
 const Header = () => {
   return (
@@ -7,7 +9,7 @@ const Header = () => {
       <div className="px-4">
         <div className="px-4 border border-outline backdrop-blur-md rounded-xl flex items-center justify-between h-[60px]">
           <div className="flex items-center gap-4 ">
-            <Link href="/" className="flex gap-1">
+            <Link href={paths.home.getHref()} className="flex gap-1">
               <p className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#CC2936] to-[#a21f42]">
                 tl.b
               </p>
@@ -16,8 +18,9 @@ const Header = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <Button asChild className="bg-cherry hover:bg-cherry/70">
-              <Link href="/login">Login</Link>
+            <ThemeToggler />
+            <Button asChild className="bg-cherry hover:bg-cherry/80 border-cherry">
+              <Link href="/login" className="text-white">Login</Link>
             </Button>
           </div>
         </div>

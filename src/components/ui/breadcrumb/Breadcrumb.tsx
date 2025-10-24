@@ -3,19 +3,20 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { ChevronRight, Home } from "lucide-react";
+import { paths } from "@/config/paths";
 
 const Breadcrumb = () => {
-  const paths = usePathname();
+  const pathName = usePathname();
 
-  if (paths === "/") return null;
+  if (pathName === "/") return null;
 
-  const pathNames = paths.split("/").filter((path) => path);
+  const pathNames = pathName.split("/").filter((path) => path);
 
   return (
     <nav className="w-full mb-8">
       <ol className="flex items-center gap-2 flex-wrap">
         <Link
-          href="/"
+          href={paths.home.getHref()}
           className="flex items-center gap-2 border border-cherry bg-cherry rounded-xl py-1 px-2 text-white hover:opacity-70 duration-200 transition"
         >
           <Home size={16} />

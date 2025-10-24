@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
 import { useNewsBySlugCreateQO } from "../hooks/useNewsBySlugQO";
 import { DateDisplay, SafeHtml, SmoothImage } from "@/components/ui";
+import { paths } from "@/config/paths";
 
 interface INewsCardProps {
   item: INewsItem;
@@ -42,7 +43,7 @@ const NewsCard = ({ item }: INewsCardProps) => {
   return (
     <Link
       className="w-full flex flex-col border border-outline group rounded-xl hover:opacity-80 transition-opacity duration-200 cursor-pointer overflow-hidden bg-backgroundSecondary"
-      href={`/news/${item.slug}`}
+      href={paths.newsDetails.getHref(item.slug)}
       onMouseEnter={handlePrefetch}
       onMouseLeave={cancelPrefetch}
       onFocus={handlePrefetch}

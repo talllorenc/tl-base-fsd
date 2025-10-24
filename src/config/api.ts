@@ -19,4 +19,5 @@ export const API = axios.create({
 export const API_ROUTES = {
   news: `${API_URL}/news`,
   users: `${API_URL}/users`,
+  posts: `${API_URL}/posts`,
 };
