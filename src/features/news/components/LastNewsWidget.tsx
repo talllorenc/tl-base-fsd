@@ -42,7 +42,7 @@ const LastNewsWidget = () => {
           <div className="absolute inset-0 backdrop-blur-xs rounded-xl z-[1]" />
 
           <div className="absolute inset-0 z-[2] flex flex-col justify-center px-4">
-            <p className="font-bold">News Of The Day</p>
+            <p className="font-bold text-white">News Of The Day</p>
           </div>
         </div>
 
