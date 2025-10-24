@@ -38,7 +38,7 @@ const UsersList = () => {
   }
 
   if (!users?.data.length) {
-    return <EmptyData text="No users" />;
+    return <EmptyData text="The list is empty" />;
   }
 
   return (

@@ -24,7 +24,7 @@ const NewsCard = ({ item }: INewsCardProps) => {
 
   const handlePrefetch = () => {
     timeoutRef.current = setTimeout(() => {
-      router.prefetch(`/news/${item.slug}`);
+      router.prefetch(paths.newsDetails.getHref(item.slug));
       queryClient.prefetchQuery(newsBySlugQueryOptions);
     }, 200);
   };
@@ -70,7 +70,7 @@ const NewsCard = ({ item }: INewsCardProps) => {
         </div>
       </div>
       <div className="flex flex-col p-4 gap-4 flex-1">
-        <h3 className="group-hover:underline">{item.title}</h3>
+        <h3 className="group-hover:underline line-clamp-2">{item.title}</h3>
         <SafeHtml
           html={item.desc}
           className="line-clamp-4 tt-paragraph-list-item"

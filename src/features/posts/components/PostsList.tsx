@@ -1,25 +1,26 @@
 "use client";
 
 import { buildApiParams } from "@/utils/buildApiParams";
-import NewsCard from "./NewsCard";
-import { useSearchParams } from "next/navigation";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import useNewsCreateQO from "../hooks/useNewsCreateQO";
+import { useSearchParams } from "next/navigation";
+import React from "react";
+import usePostsCreateQO from "../hooks/usePostsCreateQO";
 import { EmptyData, ErrorAxios, Spinner } from "@/components/ui";
-import NewsPagination from "./NewsPagination";
+import PostCard from "./PostCard";
+import PostsPagination from "./PostsPagination";
 
-const NewsList = () => {
+const PostsList = () => {
   const searchParams = useSearchParams();
   const params = buildApiParams(searchParams);
 
   const {
-    data: news,
+    data: posts,
     isLoading,
     isError,
     isPlaceholderData,
   } = useQuery(
-    useNewsCreateQO(
-      { page: 1, perPage: 9, ...params },
+    usePostsCreateQO(
+      { page: 1, perPage: 12, ...params },
       {
         placeholderData: keepPreviousData,
       }
@@ -38,27 +39,27 @@ const NewsList = () => {
     return <ErrorAxios />;
   }
 
-  if (!news?.data.length) {
+  if (!posts?.data.length) {
     return <EmptyData text="The list is empty" />;
   }
 
   return (
     <>
       <div
-        className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 w-full ${
+        className={`grid grid-cols-1 gap-4 w-full ${
           isPlaceholderData && "animate-pulse"
         }`}
       >
-        {news.data.map((item) => (
-          <NewsCard key={item.id} item={item} />
+        {posts.data.map((item) => (
+          <PostCard key={item.id} item={item} />
         ))}
       </div>
 
       <div className="mt-8">
-        <NewsPagination meta={news.meta} />
+        <PostsPagination meta={posts.meta} />
       </div>
     </>
   );
 };
 
-export default NewsList;
+export default PostsList;

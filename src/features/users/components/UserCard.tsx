@@ -24,7 +24,7 @@ const UserCard = ({ item }: IUserCardProps) => {
 
   const handlePrefetch = () => {
     timeoutRef.current = setTimeout(() => {
-      router.prefetch(`/users/${item.id}`);
+      router.prefetch(paths.usersDetails.getHref(item.id));
       queryClient.prefetchQuery(userByIdCreateQO);
     }, 200);
   };
