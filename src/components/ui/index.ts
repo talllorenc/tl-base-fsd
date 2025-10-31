@@ -15,3 +15,5 @@ export { Select, SelectGroup, SelectValue, SelectTrigger, SelectContent, SelectI
 export { default as Input } from "./input/Input";
 export { default as ShareButton } from "./share-button/ShareButton";
 export { default as ThemeToggler } from "./theme-toggler/ThemeToggler";
+export { default as LightboxGallery } from "./lightbox-gallery/LightboxGallery";
+export { default as GiscusComments } from "./giscus-comments/GiscusComments";

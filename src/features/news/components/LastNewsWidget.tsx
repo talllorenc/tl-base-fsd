@@ -55,8 +55,8 @@ const LastNewsWidget = () => {
           </Link>
           <SafeHtml html={news.desc} className="line-clamp-4" />
           <div className="flex items-center gap-2">
-            <DateDisplay date={news.dateCreated} withDateAgo={false} />
             <NewsCategoryBadge category={news.category} />
+            <DateDisplay date={news.dateCreated} withDateAgo={false} />
           </div>
         </div>
       </div>

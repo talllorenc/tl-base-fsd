@@ -3,13 +3,15 @@
 import {
   DateDisplay,
   ErrorAxios,
+  GiscusComments,
+  LightboxGallery,
   SafeHtml,
   ShareButton,
   Spinner,
 } from "@/components/ui";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { usePostBySlugCreateQO } from "../hooks/usePostsBySlugQO";
 
 interface IPostDetailContentProps {
@@ -17,6 +19,7 @@ interface IPostDetailContentProps {
 }
 
 const PostDetailContent = ({ slug }: IPostDetailContentProps) => {
+  const router = useRouter();
   const pathName = usePathname();
   const URL = `${process.env.NEXT_PUBLIC_CLIENT_URL}${pathName}`;
 
@@ -38,8 +41,14 @@ const PostDetailContent = ({ slug }: IPostDetailContentProps) => {
     return <ErrorAxios />;
   }
 
+  const images = post?.imagePath.map((img: string) => ({
+    src: `${process.env.NEXT_PUBLIC_SERVER_URL}${img}`,
+    alt: `${post.title} image`,
+  }));
+
   if (!post) {
-    return <ErrorAxios />;
+    router.replace("/404");
+    return null;
   }
 
   return (
@@ -53,11 +62,17 @@ const PostDetailContent = ({ slug }: IPostDetailContentProps) => {
 
       <div className="mt-8 bg-backgroundSecondary p-4 border border-outline rounded-xl">
         <SafeHtml html={post.desc} />
+        {images && images.length > 0 && (
+          <div className="mt-8">
+            <h3 className="mb-2">Gallery</h3>
+            <LightboxGallery images={images} />
+          </div>
+        )}
       </div>
 
       {post.links.length !== 0 && (
         <div className="mt-8">
-          <p className="font-medium">Useful links</p>
+          <h3 className="mb-2">Useful Links</h3>
           <div className="flex flex-col gap-2 mt-2">
             {post.links.map((link, index) => (
               <a
@@ -76,6 +91,10 @@ const PostDetailContent = ({ slug }: IPostDetailContentProps) => {
           </div>
         </div>
       )}
+
+      <div className="mt-8">
+        <GiscusComments />
+      </div>
     </>
   );
 };

@@ -6,12 +6,14 @@ import { DateDisplay, ErrorAxios, SmoothImage, Spinner } from "@/components/ui";
 import Image from "next/image";
 import UserRoleBadge from "./UserRoleBadge";
 import { Info } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 interface IUserDetailContentProps {
   id: string;
 }
 
 const UserDetailsContent = ({ id }: IUserDetailContentProps) => {
+  const router = useRouter();
   const { data: user, isLoading, isError } = useQuery(useUserByIdQO(id));
 
   if (isLoading) {
@@ -27,12 +29,13 @@ const UserDetailsContent = ({ id }: IUserDetailContentProps) => {
   }
 
   if (!user) {
-    return <ErrorAxios />;
+    router.replace("/404");
+    return null;
   }
 
   return (
-    <>
-      <div className="flex flex-col md:flex-row items-center gap-4 p-4 bg-backgroundSecondary border border-outline rounded-xl max-w-xl">
+    <div className="grid grid-cols-1 md:grid-cols-2 items-stretch gap-4">
+      <div className="flex flex-col md:flex-row items-center h-full gap-4 p-4 bg-backgroundSecondary border border-outline rounded-xl">
         <div className="relative w-32 h-32 border border-outline rounded-full overflow-hidden shrink-0">
           {user.imagePath ? (
             <SmoothImage
@@ -59,7 +62,7 @@ const UserDetailsContent = ({ id }: IUserDetailContentProps) => {
         </div>
       </div>
 
-      <div className="p-4 mt-8 bg-backgroundSecondary border border-outline rounded-xl max-w-xl">
+      <div className="h-full p-4 bg-backgroundSecondary border border-outline rounded-xl">
         <div className="flex items-center gap-2">
           <Info
             size={36}
@@ -103,7 +106,7 @@ const UserDetailsContent = ({ id }: IUserDetailContentProps) => {
           <p>0</p>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

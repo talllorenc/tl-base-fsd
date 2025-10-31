@@ -3,6 +3,7 @@
 import {
   DateDisplay,
   ErrorAxios,
+  GiscusComments,
   SafeHtml,
   ShareButton,
   SmoothImage,
@@ -12,13 +13,14 @@ import { useNewsBySlugCreateQO } from "../hooks/useNewsBySlugQO";
 import NewsCategoryBadge from "./NewsCategoryBadge";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 interface INewsDetailContentProps {
   slug: string;
 }
 
 const NewsDetailContent = ({ slug }: INewsDetailContentProps) => {
+  const router = useRouter();
   const pathName = usePathname();
   const URL = `${process.env.NEXT_PUBLIC_CLIENT_URL}${pathName}`;
 
@@ -41,7 +43,8 @@ const NewsDetailContent = ({ slug }: INewsDetailContentProps) => {
   }
 
   if (!news) {
-    return <ErrorAxios />;
+    router.replace("/404");
+    return null;
   }
 
   return (
@@ -72,8 +75,8 @@ const NewsDetailContent = ({ slug }: INewsDetailContentProps) => {
 
       {news.links.length !== 0 && (
         <div className="mt-8">
-          <p className="font-medium">Useful links</p>
-          <div className="flex flex-col gap-2 mt-2">
+          <h3 className="mb-2">Useful Links</h3>
+          <div className="flex flex-col gap-2">
             {news.links.map((link, index) => (
               <a
                 key={index}
@@ -91,6 +94,10 @@ const NewsDetailContent = ({ slug }: INewsDetailContentProps) => {
           </div>
         </div>
       )}
+
+      <div className="mt-8">
+        <GiscusComments />
+      </div>
     </>
   );
 };

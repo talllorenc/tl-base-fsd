@@ -15,6 +15,19 @@
   --color-infoForeground: var(--info-foreground);
   --color-infoOutline: var(--info-outline);
   --color-tableHeader: var(--table-header);
+
+  --animate-orbit: orbit calc(var(--duration) * 1s) linear infinite;
+  @keyframes orbit {
+    0% {
+      transform: rotate(calc(var(--angle) * 1deg))
+        translateY(calc(var(--radius) * 1px)) rotate(calc(var(--angle) * -1deg));
+    }
+    100% {
+      transform: rotate(calc(var(--angle) * 1deg + 360deg))
+        translateY(calc(var(--radius) * 1px))
+        rotate(calc((var(--angle) * -1deg) - 360deg));
+    }
+  }
 }
 
 :root {
@@ -112,4 +125,8 @@
   margin-left: 16px;
 }
 
-/* Select */
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
