@@ -13,6 +13,9 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { usePostBySlugCreateQO } from "../hooks/usePostsBySlugQO";
+import { useEffect, useRef } from "react";
+import hljs from "highlight.js";
+import "highlight.js/styles/atom-one-dark.css";
 
 interface IPostDetailContentProps {
   slug: string;
@@ -21,6 +24,7 @@ interface IPostDetailContentProps {
 const PostDetailContent = ({ slug }: IPostDetailContentProps) => {
   const router = useRouter();
   const pathName = usePathname();
+  const descRef = useRef<HTMLDivElement>(null);
   const URL = `${process.env.NEXT_PUBLIC_CLIENT_URL}${pathName}`;
 
   const {
@@ -28,6 +32,22 @@ const PostDetailContent = ({ slug }: IPostDetailContentProps) => {
     isLoading,
     isError,
   } = useQuery(usePostBySlugCreateQO(slug));
+
+  useEffect(() => {
+    if (!descRef.current) return;
+
+    const codeBlocks = descRef.current.querySelectorAll("pre code");
+
+    codeBlocks.forEach((block) => {
+      const el = block as HTMLElement;
+
+      if (![...el.classList].some((cls) => cls.startsWith("language-"))) {
+        el.classList.add("language-typescript");
+      }
+
+      hljs.highlightElement(el);
+    });
+  }, [post?.desc]);
 
   if (isLoading) {
     return (
@@ -61,7 +81,9 @@ const PostDetailContent = ({ slug }: IPostDetailContentProps) => {
       <h1 className="mt-2">{post.title}</h1>
 
       <div className="mt-8 bg-backgroundSecondary p-4 border border-outline rounded-xl">
-        <SafeHtml html={post.desc} />
+        <div ref={descRef}>
+          <SafeHtml html={post.desc} />
+        </div>
         {images && images.length > 0 && (
           <div className="mt-8">
             <h3 className="mb-2">Gallery</h3>

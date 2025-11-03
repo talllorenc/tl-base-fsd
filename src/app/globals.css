@@ -94,6 +94,11 @@
   padding: 32px 0;
 }
 
+/* Заголовки */
+.tt-heading {
+  margin:0 0 16px 0;
+}
+
 /* Параграфы */
 .tt-paragraph {
   margin-bottom: 16px;
@@ -121,8 +126,28 @@
   padding-left: 24px;
 }
 
+/* Блок кода */
+.tt-codeblock {
+  white-space: pre;
+  overflow-x: auto;
+  margin-bottom: 16px;
+  position: relative;
+  border-radius: 12px;
+}
+
 .tt-orderedlist li {
   margin-left: 16px;
+}
+
+.shiki {
+  counter-reset: step;
+  counter-increment: step 0;
+  .line {
+    &::before {
+      counter-increment: step;
+      @apply mr-6 inline-block w-4 border-transparent text-right text-neutral-600 content-[counter(step)];
+    }
+  }
 }
 
 @layer base {

@@ -20,4 +20,8 @@ export const API_ROUTES = {
   news: `${API_URL}/news`,
   users: `${API_URL}/users`,
   posts: `${API_URL}/posts`,
+  auth: {
+    login: `${API_URL}/auth/login`,
+    register: `${API_URL}/auth/register`,
+  },
 };

@@ -16,7 +16,6 @@ const Header = () => {
               <span className="font-bold text-md">v.1</span>
             </Link>
           </div>
-
           <div className="flex items-center gap-4">
             <ThemeToggler />
             <Button asChild className="bg-cherry hover:bg-cherry/80 border-cherry">

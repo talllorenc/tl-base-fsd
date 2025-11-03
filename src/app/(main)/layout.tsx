@@ -1,5 +1,3 @@
-"use client";
-
 import { Breadcrumb, Header, LeftMenu, RightMenu } from "@/components/ui";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {

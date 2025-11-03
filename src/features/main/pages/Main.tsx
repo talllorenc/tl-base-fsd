@@ -1,7 +1,15 @@
-import { MorphingText } from "@/components/ui";
+import {  MorphingText } from "@/components/ui";
 import { LastNewsBanner } from "@/features/news/components";
 
 const Main = () => {
+  const example = `
+  import React from 'react';
+
+  export default function App() {
+    console.log("Hello World");
+    return <div>Hello World!</div>;
+  }
+  `;
   return (
     <>
       <LastNewsBanner />
