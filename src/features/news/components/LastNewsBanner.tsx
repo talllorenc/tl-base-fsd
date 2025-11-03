@@ -43,7 +43,7 @@ const LastNewsBanner = () => {
         <div className="absolute inset-0 backdrop-blur-xs rounded-xl z-[1]" />
         <div className="absolute inset-0 z-[2] flex gap-4 flex-col items-center justify-center text-center p-4">
           <NewsCategoryBadge category={news.category} />
-          <h2 className="text-[#d4d4d4] hover:opacity-70 duration-200 line-clamp-3">
+          <h2 className="text-white hover:opacity-70 duration-200 line-clamp-3">
             <Link href={`/news/${news.slug}`}>{news.title}</Link>
           </h2>
           <DateDisplay className="text-[#d4d4d4]" date={news.dateCreated} />

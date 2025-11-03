@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { IUserItem } from "../types";
-import { DateDisplay, SmoothImage } from "@/components/ui";
+import { SmoothImage } from "@/components/ui";
 import Image from "next/image";
 import UserRoleBadge from "./UserRoleBadge";
 import { useRouter } from "next/navigation";
@@ -43,13 +43,13 @@ const UserCard = ({ item }: IUserCardProps) => {
   return (
     <Link
       href={paths.usersDetails.getHref(item.id)}
-      className="block border border-outline bg-backgroundSecondary rounded-xl p-6 hover:opacity-80 transition-opacity duration-200 gap-4"
+      className="flex flex-col items-center md:flex-row md:items-center border border-outline bg-backgroundSecondary rounded-xl p-4 hover:opacity-80 transition-opacity duration-200 gap-4"
       onMouseEnter={handlePrefetch}
       onMouseLeave={cancelPrefetch}
       onFocus={handlePrefetch}
       onBlur={cancelPrefetch}
     >
-      <div className="relative w-24 h-24 border border-outline rounded-full overflow-hidden mx-auto">
+      <div className="relative w-24 h-24 border border-outline rounded-full overflow-hidden shrink-0">
         {item.imagePath ? (
           <SmoothImage
             src={`${process.env.NEXT_PUBLIC_SERVER_URL}${item.imagePath}`}
@@ -67,11 +67,10 @@ const UserCard = ({ item }: IUserCardProps) => {
         )}
       </div>
 
-      <div className="flex flex-col gap-1 items-center justify-center text-center mt-4">
+      <div className="flex flex-col gap-1 items-center md:items-start">
         <p className="line-clamp-1 font-medium">
           {item.firstName + " " + item.lastName}
         </p>
-        <DateDisplay withDateAgo={false} date={item.registrationDate} />
         <UserRoleBadge role={item.role} />
       </div>
     </Link>
