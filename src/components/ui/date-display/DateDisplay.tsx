@@ -26,7 +26,7 @@ const DateDisplay = ({
   return (
     <div
       className={cn(
-        "flex items-center gap-1 text-sm text-foregroundSecondary whitespace-nowrap font-medium",
+        "flex items-center gap-1 text-foregroundSecondary whitespace-nowrap font-medium",
         className
       )}
     >

@@ -1,5 +1,5 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
-import authService from "../api/api";
+import loginService from "../api/api";
 import { ILoginRequest, ILoginResponse } from "../types/types";
 
 export function useLoginCreateQO<TError = Error>(
@@ -10,6 +10,6 @@ export function useLoginCreateQO<TError = Error>(
 ) {
   return useMutation<ILoginResponse, TError, ILoginRequest>({
     ...options,
-    mutationFn: (data: ILoginRequest) => authService.login(data),
+    mutationFn: (data: ILoginRequest) => loginService.login(data),
   });
 }

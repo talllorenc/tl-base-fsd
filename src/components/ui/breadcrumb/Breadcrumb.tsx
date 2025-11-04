@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { ChevronRight, Home } from "lucide-react";
 import { paths } from "@/config/paths";
+import { Button } from "../button/Button";
 
 const Breadcrumb = () => {
   const pathName = usePathname();
@@ -15,14 +16,14 @@ const Breadcrumb = () => {
   return (
     <nav className="w-full mb-8">
       <ol className="flex items-center gap-2 flex-wrap">
-        <Link
-          href={paths.home.getHref()}
-          className="flex items-center gap-2 border border-cherry bg-cherry rounded-xl py-1 px-2 text-white hover:opacity-70 duration-200 transition"
-        >
-          <Home size={16} />
-          Home
-          <ChevronRight size={16} />
-        </Link>
+        <Button asChild className="bg-cherry hover:bg-cherry/80 border-cherry">
+          <Link href={paths.home.getHref()} className="text-white">
+            <Home/>
+            Home
+            <ChevronRight/>
+          </Link>
+        </Button>
+
         {pathNames.map((path, index) => {
           const href = `/${pathNames.slice(0, index + 1).join("/")}`;
           const itemLink = path[0].toUpperCase() + path.slice(1);

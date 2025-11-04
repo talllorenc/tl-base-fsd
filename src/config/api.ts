@@ -23,5 +23,6 @@ export const API_ROUTES = {
   auth: {
     login: `${API_URL}/auth/login`,
     register: `${API_URL}/auth/register`,
+    google: `${API_URL}/auth/google-auth`,
   },
 };

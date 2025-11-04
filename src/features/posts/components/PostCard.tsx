@@ -51,7 +51,7 @@ const PostCard = ({ item }: INewsCardProps) => {
       <div className="flex flex-col mt-4">
         <SafeHtml
           html={item.desc}
-          className="line-clamp-4 tt-paragraph-list-item"
+          className="line-clamp-2 tt-paragraph-list-item"
         />
         <div className="mt-2">
           <DateDisplay date={item.dateCreated} />
