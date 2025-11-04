@@ -62,7 +62,7 @@ const PostDetailContent = ({ slug }: IPostDetailContentProps) => {
   }
 
   const images = post?.imagePath.map((img: string) => ({
-    src: `${process.env.NEXT_PUBLIC_SERVER_URL}${img}`,
+    src: `${img}`,
     alt: `${post.title} image`,
   }));
 

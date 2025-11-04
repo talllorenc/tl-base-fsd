@@ -52,7 +52,7 @@ const NewsCard = ({ item }: INewsCardProps) => {
       <div className="relative h-[200px] rounded-xl overflow-hidden group-hover:opacity-80 transition-opacity duration-200">
         {item.imagePath.length ? (
           <SmoothImage
-            src={`${process.env.NEXT_PUBLIC_SERVER_URL}${item.imagePath[0]}`}
+            src={`${item.imagePath[0]}`}
             alt={`Image for news: ${item.title}`}
             className="rounded-xl object-cover"
           />

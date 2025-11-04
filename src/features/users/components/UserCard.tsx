@@ -52,7 +52,7 @@ const UserCard = ({ item }: IUserCardProps) => {
       <div className="relative w-24 h-24 border border-outline rounded-full overflow-hidden shrink-0">
         {item.imagePath ? (
           <SmoothImage
-            src={`${process.env.NEXT_PUBLIC_SERVER_URL}${item.imagePath}`}
+            src={`${item.imagePath}`}
             alt={`Image for user: ${item.firstName} ${item.lastName}`}
             className="rounded-full object-cover"
           />

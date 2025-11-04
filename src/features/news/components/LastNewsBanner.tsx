@@ -35,7 +35,7 @@ const LastNewsBanner = () => {
       <div className="relative border border-outline h-[300px] rounded-xl">
         {news.imagePath?.length ? (
           <SmoothImage
-            src={`${process.env.NEXT_PUBLIC_SERVER_URL}${news.imagePath[0]}`}
+            src={`${news.imagePath[0]}`}
             alt={`Image for news: ${news.title}`}
             className="rounded-xl object-cover"
           />

@@ -35,7 +35,7 @@ const LastNewsWidget = () => {
       <div className="flex flex-col">
         <div className="relative h-[50px] rounded-t-xl border-b border-outline">
           <SmoothImage
-            src={`${process.env.NEXT_PUBLIC_SERVER_URL}${news.imagePath[0]}`}
+            src={`${news.imagePath[0]}`}
             alt={`Image for news: ${news.title}`}
             className="rounded-t-xl object-cover"
           />

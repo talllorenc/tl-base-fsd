@@ -62,7 +62,7 @@ const NewsDetailContent = ({ slug }: INewsDetailContentProps) => {
       {news.imagePath.length && (
         <div className="relative h-[200px] md:h-[500px] rounded-xl overflow-hidden mt-8 border border-outline">
           <SmoothImage
-            src={`${process.env.NEXT_PUBLIC_SERVER_URL}${news.imagePath[0]}`}
+            src={`${news.imagePath[0]}`}
             alt={`Image for news: ${news.title}`}
             className="rounded-xl object-cover"
           />
