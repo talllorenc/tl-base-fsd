@@ -15,6 +15,7 @@ export interface IUserItem {
   id: string;
   firstName: string;
   lastName: string;
+  email: string;
   role: "USER" | "ADMIN" | "TESTER";
   isVerified: boolean;
   imagePath?: string;

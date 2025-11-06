@@ -4,6 +4,8 @@ import { ToastContainer } from "react-toastify";
 import NextTopLoader from "nextjs-toploader";
 import ThemeProvider from "./providers/ThemeProvider";
 import QueryProvider from "./providers/QueryProvider";
+import { AuthProvider } from "./providers/AuthProvider";
+import { getUser } from "@/lib/getUser";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -11,11 +13,13 @@ const roboto = Roboto({
   style: ["normal", "italic"],
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const user = await getUser();
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -23,32 +27,32 @@ export default function RootLayout({
       </head>
       <body className={`${roboto.className}`}>
         <ThemeProvider>
-          <QueryProvider>
-            <ToastContainer
-              position="bottom-right"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick={true}
-              rtl={false}
-              pauseOnFocusLoss
-              draggable={false}
-              pauseOnHover
-              theme="light"
-            />
-            <NextTopLoader
-              color="#cc2936"
-              initialPosition={0.08}
-              crawlSpeed={200}
-              height={3}
-              crawl={true}
-              showSpinner={false}
-              easing="ease"
-              speed={200}
-              shadow="0 0 10px #cc2936,0 0 5px #cc2936"
-            />
-            {children}
-          </QueryProvider>
+          <ToastContainer
+            position="bottom-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick={true}
+            rtl={false}
+            pauseOnFocusLoss
+            draggable={false}
+            pauseOnHover
+            theme="light"
+          />
+          <NextTopLoader
+            color="#cc2936"
+            initialPosition={0.08}
+            crawlSpeed={200}
+            height={3}
+            crawl={true}
+            showSpinner={false}
+            easing="ease"
+            speed={200}
+            shadow="0 0 10px #cc2936,0 0 5px #cc2936"
+          />
+          <AuthProvider user={user}>
+            <QueryProvider>{children}</QueryProvider>
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>

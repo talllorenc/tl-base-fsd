@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { Button } from "../button/Button";
 import ThemeToggler from "../theme-toggler/ThemeToggler";
 import { paths } from "@/config/paths";
+import { LoginButton } from "@/features/auth/login/components";
 
 const Header = () => {
   return (
@@ -18,9 +18,7 @@ const Header = () => {
           </div>
           <div className="flex items-center gap-4">
             <ThemeToggler />
-            <Button asChild className="bg-cherry hover:bg-cherry/80 border-cherry">
-              <Link href="/login" className="text-white">Login</Link>
-            </Button>
+            <LoginButton />
           </div>
         </div>
       </div>

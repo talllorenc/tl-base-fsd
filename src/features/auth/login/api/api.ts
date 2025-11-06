@@ -7,8 +7,12 @@ class AuthService {
       API_ROUTES.auth.login,
       body
     );
-    
+
     return data;
+  }
+
+  loginGoogle() {
+    window.location.href = API_ROUTES.auth.google;
   }
 }
 

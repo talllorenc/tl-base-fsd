@@ -1,19 +1,10 @@
-import {  MorphingText } from "@/components/ui";
+import { MorphingText } from "@/components/ui";
 import { LastNewsBanner } from "@/features/news/components";
 
 const Main = () => {
-  const example = `
-  import React from 'react';
-
-  export default function App() {
-    console.log("Hello World");
-    return <div>Hello World!</div>;
-  }
-  `;
   return (
     <>
       <LastNewsBanner />
-
       <section className="text-center max-w-3xl mx-auto mt-12">
         <h1 className="mb-4">tl.base — your digital workspace</h1>
 

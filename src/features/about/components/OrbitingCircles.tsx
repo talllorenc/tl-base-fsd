@@ -11,7 +11,6 @@ export interface OrbitingCirclesProps
   delay?: number;
   radius?: number;
   path?: boolean;
-  iconSize?: number;
   speed?: number;
 }
 
@@ -22,7 +21,6 @@ const OrbitingCircles = ({
   duration = 20,
   radius = 160,
   path = true,
-  iconSize = 30,
   speed = 1,
   ...props
 }: OrbitingCirclesProps) => {

@@ -5,3 +5,4 @@ export { default as UsersSearch } from "./UsersSearch";
 export { default as UsersFilter } from "./UsersFilter";
 export { default as UsersSort } from "./UsersSort";
 export { default as UserDetailsContent } from "./UserDetailsContent";
+export { default as UserMenu } from "./UserMenu";

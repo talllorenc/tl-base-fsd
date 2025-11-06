@@ -18,11 +18,15 @@ export const API = axios.create({
 */
 export const API_ROUTES = {
   news: `${API_URL}/news`,
-  users: `${API_URL}/users`,
+  users: {
+    all: `${API_URL}/users`,
+    profile: `${API_URL}/users/profile`,
+  },
   posts: `${API_URL}/posts`,
   auth: {
     login: `${API_URL}/auth/login`,
     register: `${API_URL}/auth/register`,
-    google: `${API_URL}/google-auth`,
+    google: `${API_URL}/auth/google/url`,
+    logout: `${API_URL}/auth/logout`,
   },
 };
