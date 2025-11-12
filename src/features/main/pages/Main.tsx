@@ -17,8 +17,6 @@ const Main = () => {
           Build, manage, and automate everything you need — from internal tools
           to public projects.
         </p>
-
-        <p>test</p>
       </section>
     </>
   );

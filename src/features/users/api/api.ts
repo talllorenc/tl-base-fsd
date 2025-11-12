@@ -14,7 +14,7 @@ class UsersService {
   }
 
   async getUserById(id: string) {
-    const { data } = await API.get<IUserItem>(`${API_ROUTES.users}/${id}`);
+    const { data } = await API.get<IUserItem>(`${API_ROUTES.users.all}/${id}`);
     return data;
   }
 }
