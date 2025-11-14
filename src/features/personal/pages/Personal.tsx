@@ -1,7 +1,16 @@
+import { ProfileDetails } from "../components";
+
 const Personal = () => {
   return (
-    <div>Personal</div>
-  )
-}
+    <>
+      <h1>Account</h1>
+      <p className="text-foregroundSecondary">Manage your account info</p>
 
-export default Personal
+      <div className="mt-8">
+        <ProfileDetails />
+      </div>
+    </>
+  );
+};
+
+export default Personal;

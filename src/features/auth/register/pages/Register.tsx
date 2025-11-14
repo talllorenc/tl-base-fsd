@@ -24,7 +24,8 @@ const Register = () => {
         </div>
       </div>
       <div className="p-4 bg-backgroundSecondary border border-outline rounded-xl mt-8">
-        <RegisterForm />
+        {/* <RegisterForm /> */}
+        <p className="text-2xl font-bold text-cherry uppercase text-center">Soon!</p>
       </div>
       <Button asChild className="w-full mt-8 bg-transparent">
         <Link href="/" className="text-foregroundSecondary">
